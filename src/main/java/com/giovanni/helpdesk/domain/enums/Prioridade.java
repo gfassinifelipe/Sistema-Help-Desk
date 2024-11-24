@@ -1,13 +1,13 @@
-package com.giovanni.helpdesk.doamin.enums;
+package com.giovanni.helpdesk.domain.enums;
 
-public enum Perfil {
+public enum Prioridade {
 	
-	ADMIN (0, "ROLE_ADMIN"), CLIENTE (1, "ROLE_CLIENTE"), TECNICO (2, "ROLE_TECNICO");
+	BAIXA (0, "BAIXA"), MÉDIA (1, "MÉDIA"), ALTA (2, "ALTA");
 	
 	private Integer codigo;
 	private String descricao;
 	
-	Perfil(int codigo, String descricao) {
+	Prioridade(int codigo, String descricao) {
 		this.codigo = codigo;
 		this.descricao = descricao;
 	}
@@ -20,19 +20,19 @@ public enum Perfil {
 	}
 	
 	@SuppressWarnings("unused")
-	public static Perfil toEnum(Integer codigo) {
+	public static Prioridade toEnum(Integer codigo) {
 		if(codigo == null) {
 			if(codigo == null) {
 				return null;
 			}
 			
-			for (Perfil p : Perfil.values()) {
+			for (Prioridade p : Prioridade.values()) {
 				if(codigo.equals(p.getCodigo())) {
 					return p;
 				}
 			}
 		}
 		
-		throw new IllegalArgumentException("Perfil Inválido!");
+		throw new IllegalArgumentException("Prioridade Inválida!");
 	}
 }

@@ -1,13 +1,13 @@
-package com.giovanni.helpdesk.doamin.enums;
+package com.giovanni.helpdesk.domain.enums;
 
-public enum Prioridade {
+public enum Status {
 	
-	BAIXA (0, "BAIXA"), MÉDIA (1, "MÉDIA"), ALTA (2, "ALTA");
+	ABERTO (0, "ABERTO"), ANDAMENTO (1, "ANDAMENTO"), ENCERRADO (2, "ENCERRADO");
 	
 	private Integer codigo;
 	private String descricao;
 	
-	Prioridade(int codigo, String descricao) {
+	Status(int codigo, String descricao) {
 		this.codigo = codigo;
 		this.descricao = descricao;
 	}
@@ -20,19 +20,19 @@ public enum Prioridade {
 	}
 	
 	@SuppressWarnings("unused")
-	public static Prioridade toEnum(Integer codigo) {
+	public static Status toEnum(Integer codigo) {
 		if(codigo == null) {
 			if(codigo == null) {
 				return null;
 			}
 			
-			for (Prioridade p : Prioridade.values()) {
+			for (Status p : Status.values()) {
 				if(codigo.equals(p.getCodigo())) {
 					return p;
 				}
 			}
 		}
 		
-		throw new IllegalArgumentException("Prioridade Inválida!");
+		throw new IllegalArgumentException("Status Inválido!");
 	}
 }

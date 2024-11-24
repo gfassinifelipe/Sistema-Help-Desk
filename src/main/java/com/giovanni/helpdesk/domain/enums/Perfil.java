@@ -1,13 +1,13 @@
-package com.giovanni.helpdesk.doamin.enums;
+package com.giovanni.helpdesk.domain.enums;
 
-public enum Status {
+public enum Perfil {
 	
-	ABERTO (0, "ABERTO"), ANDAMENTO (1, "ANDAMENTO"), ENCERRADO (2, "ENCERRADO");
+	ADMIN (0, "ROLE_ADMIN"), CLIENTE (1, "ROLE_CLIENTE"), TECNICO (2, "ROLE_TECNICO");
 	
 	private Integer codigo;
 	private String descricao;
 	
-	Status(int codigo, String descricao) {
+	Perfil(int codigo, String descricao) {
 		this.codigo = codigo;
 		this.descricao = descricao;
 	}
@@ -20,19 +20,19 @@ public enum Status {
 	}
 	
 	@SuppressWarnings("unused")
-	public static Status toEnum(Integer codigo) {
+	public static Perfil toEnum(Integer codigo) {
 		if(codigo == null) {
 			if(codigo == null) {
 				return null;
 			}
 			
-			for (Status p : Status.values()) {
+			for (Perfil p : Perfil.values()) {
 				if(codigo.equals(p.getCodigo())) {
 					return p;
 				}
 			}
 		}
 		
-		throw new IllegalArgumentException("Status Inválido!");
+		throw new IllegalArgumentException("Perfil Inválido!");
 	}
 }
